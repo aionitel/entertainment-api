@@ -1,14 +1,13 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import "time"
 
 func main() {
-	r := gin.New()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-
-	r.Run()
+	now := time.Now()
+	for i := 0; i < 100; i++ {
+		println(i)
+	}
+	defer func() {
+		println(time.Since(now))
+	}()
 }
