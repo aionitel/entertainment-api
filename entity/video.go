@@ -1,5 +1,5 @@
 package entity
 
-func parseVid() bool {
+func ParseVideo() bool {
 	return false
 }

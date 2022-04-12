@@ -1,9 +1,9 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gofiber/fiber/v2"
+)
 
-func Contact(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "pong",
-	})
+func Contact(c *fiber.Ctx) error {
+	return c.SendString("Hello World!")
 }

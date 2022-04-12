@@ -1,14 +1,20 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 	"github.com/oranges0da/go-server/routes"
 )
 
 func main() {
-	router := gin.Default()
+	app := fiber.New(fiber.Config{ // root app with config
+		Prefork:       true,
+		CaseSensitive: true,
+		StrictRouting: true,
+		ServerHeader:  "Fiber",
+		GETOnly:       true, // for now
+	})
 
-	router.GET("/", routes.Home)
+	app.Get("/contact", routes.Contact)
 
-	router.Run()
+	app.Listen(":4000")
 }
