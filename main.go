@@ -1,20 +1,20 @@
 package main
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"net/http"
+
+	"github.com/labstack/echo/v4"
 	"github.com/oranges0da/go-server/routes"
 )
 
 func main() {
-	app := fiber.New(fiber.Config{ // root app with config
-		Prefork:       true,
-		CaseSensitive: true,
-		StrictRouting: true,
-		ServerHeader:  "Fiber",
-		GETOnly:       true, // for now
+	app := echo.New()
+
+	app.GET("/", func(e echo.Context) error {
+		return e.String(http.StatusOK, "Hello World")
 	})
 
-	app.Get("/contact", routes.Contact)
+	app.GET("/home", routes.Home)
 
-	app.Listen(":4000")
+	app.Logger.Fatal(app.Start(":4000"))
 }
