@@ -10,6 +10,7 @@ func main() {
 	router.LoadHTMLGlob("templates/*")
 
 	router.GET("/", routes.Home)
+	router.GET("/contact", routes.Contact)
 
 	router.Run(":4000")
 }
