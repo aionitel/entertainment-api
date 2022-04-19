@@ -2,8 +2,10 @@ package routes
 
 import "github.com/gin-gonic/gin"
 
-func Home(c *gin.Context) {
-	c.HTML(200, "home.tmpl", gin.H{
-		"title": "Home Page",
-	})
+func Home() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"data": "hello",
+		})
+	}
 }

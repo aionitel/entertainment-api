@@ -7,10 +7,9 @@ import (
 
 func main() {
 	router := gin.New()
-	router.LoadHTMLGlob("templates/*")
 
-	router.GET("/", routes.Home)
-	router.GET("/contact", routes.Contact)
+	router.GET("/", routes.Home())
+	router.GET("/contact", routes.Contact())
 
 	router.Run(":4000")
 }
