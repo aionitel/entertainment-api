@@ -1,11 +1,11 @@
-package routes
+package services
 
 import "github.com/gin-gonic/gin"
 
-func Contact() gin.HandlerFunc {
+func Get() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"data": "contact page",
+			"data": "hello",
 		})
 	}
 }

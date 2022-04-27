@@ -1,11 +1,11 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
-func Home() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"data": "hello",
-		})
-	}
+func Home(baseRouter *gin.RouterGroup) {
+	router := baseRouter.Group()
+
+	
 }
