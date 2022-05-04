@@ -5,10 +5,10 @@ import (
 	"github.com/oranges0da/go-server/services"
 )
 
-func Home() *gin.RouterGroup {
+func Movie() *gin.RouterGroup {
 	r := gin.New()
 
-	routes := r.Group("/home")
+	routes := r.Group("/movie")
 	{
 		routes.GET("/", services.GetHome())
 	}
