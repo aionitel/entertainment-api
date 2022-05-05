@@ -4,8 +4,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
-	router := gin.New()
+type routes struct {
+	router *gin.Engine
+}
 
-	router.
+func BundleRoutes() routes {
+	r := routes{
+		router: gin.New(),
+	}
+
+	movie := r.router.Group("/movie")
+}
+
+func main() {
+	app := gin.New()
+
 }

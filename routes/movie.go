@@ -8,9 +8,9 @@ import (
 func Movie() *gin.RouterGroup {
 	r := gin.New()
 
-	routes := r.Group("/movie")
+	routes := r.Group("/")
 	{
-		routes.GET("/", services.GetHome())
+		routes.GET("/:name", services.GetMovie())
 	}
 
 	return routes
