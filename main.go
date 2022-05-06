@@ -1,12 +1,14 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	service "github.com/oranges0da/go-server/service/movie"
+	"github.com/oranges0da/go-server/handler"
 )
 
+// RunServer start server and quit if error occurs or user quits
 func RunServer(server *http.Server) {
 	if err := server.ListenAndServe(); err != nil {
 		panic(err)
@@ -16,15 +18,16 @@ func RunServer(server *http.Server) {
 func main() {
 	router := gin.New()
 
-	router.Group("/movie")
-	{
-		router.GET("/:name", service.GetMovie())
-	}
+	handler.NewHandler(&handler.Config{
+		R: router,
+	})
 
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: router,
 	}
 
-	RunServer(server)
+	go RunServer(server)
+
+	log.Printf("Listening on port: %v\n", server.Addr)
 }

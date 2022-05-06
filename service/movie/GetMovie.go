@@ -5,6 +5,8 @@ import (
 	"github.com/oranges0da/go-server/model"
 )
 
+// get movie by name in query param
+
 func GetMovie() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		movieName := c.Param("name")

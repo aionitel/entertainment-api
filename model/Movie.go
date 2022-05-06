@@ -9,7 +9,7 @@ type Movie struct {
 	Rating   float64 `json:"rating"`
 }
 
-func NewMovie(
+func NewMovie( // to create new Movie object
 	id int64,
 	title string,
 	desc string,
