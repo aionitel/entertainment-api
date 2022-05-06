@@ -1,8 +1,8 @@
-package services
+package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/oranges0da/go-server/models"
+	"github.com/oranges0da/go-server/model"
 )
 
 func GetMovie() gin.HandlerFunc {
@@ -11,7 +11,7 @@ func GetMovie() gin.HandlerFunc {
 
 		// query api for movie details
 
-		movie := models.NewMovie(
+		movie := model.NewMovie(
 			1,
 			movieName,
 			"Two imprisoned",

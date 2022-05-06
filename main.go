@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/oranges0da/go-server/handler"
+	service "github.com/oranges0da/go-server/service/movie"
 )
 
 func RunServer(server *http.Server) {
@@ -16,9 +16,10 @@ func RunServer(server *http.Server) {
 func main() {
 	router := gin.New()
 
-	handler.NewHandler(&handler.Config{
-		R: router,
-	})
+	router.Group("/movie")
+	{
+		router.GET("/:name", service.GetMovie())
+	}
 
 	server := &http.Server{
 		Addr:    ":8080",
