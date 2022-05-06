@@ -8,3 +8,21 @@ type Movie struct {
 	Year     int     `json:"year"`
 	Rating   float64 `json:"rating"`
 }
+
+func (movie *Movie) NewMovie(
+	id int64,
+	title string,
+	desc string,
+	director string,
+	year int,
+	rating float64,
+) *Movie {
+	return &Movie{
+		ID:       id,
+		Title:    title,
+		Desc:     desc,
+		Director: director,
+		Year:     year,
+		Rating:   rating,
+	}
+}

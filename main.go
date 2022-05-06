@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/oranges0da/go-server/routes"
 )
 
 func RunServer(server *http.Server) {
@@ -22,5 +23,8 @@ func main() {
 		Handler: app,
 	}
 
-	server.ListenAndServe()
+	app.Group("/movie")
+	{
+		app.GET("/:name", routes.MovieRoutes())
+	}
 }
