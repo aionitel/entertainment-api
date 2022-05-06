@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/oranges0da/go-server/services"
+	services "github.com/oranges0da/go-server/services/movie"
 )
 
 func Movie() *gin.RouterGroup {
@@ -10,7 +10,7 @@ func Movie() *gin.RouterGroup {
 
 	routes := r.Group("/")
 	{
-		routes.GET("/:name", services.GetMovie())
+		routes.GET("/:name", services.GetMovies())
 	}
 
 	return routes

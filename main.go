@@ -1,22 +1,26 @@
 package main
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
-type routes struct {
-	router *gin.Engine
-}
-
-func BundleRoutes() routes {
-	r := routes{
-		router: gin.New(),
+func RunServer(server *http.Server) {
+	if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		log.Fatalf("Failed to initialize server.")
 	}
 
-	movie := r.router.Group("/movie")
 }
 
 func main() {
 	app := gin.New()
 
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: app,
+	}
+
+	server.ListenAndServe()
 }
