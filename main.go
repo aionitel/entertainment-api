@@ -27,7 +27,7 @@ func main() {
 		Handler: router,
 	}
 
-	go RunServer(server)
+	RunServer(server)
 
 	log.Printf("Listening on port: %v\n", server.Addr)
 }
