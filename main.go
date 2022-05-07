@@ -11,6 +11,8 @@ import (
 
 // RunServer start server and quit if error occurs or user quits
 func RunServer(server *http.Server) {
+	log.Printf("Server is running on port: %s\n", server.Addr)
+
 	if err := server.ListenAndServe(); err != nil {
 		panic(err)
 	}
@@ -28,11 +30,9 @@ func main() {
 	})
 
 	server := &http.Server{
-		Addr:    ":8080",
+		Addr:    ":4000",
 		Handler: router,
 	}
 
 	RunServer(server)
-
-	log.Printf("Listening on port: %v\n", server.Addr)
 }

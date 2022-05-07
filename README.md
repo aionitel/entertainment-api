@@ -9,7 +9,12 @@ ___
 ## Movies
 ### Endpoints
 ___
-### Search for movie info by title. /movie/:title (/movie/?title=2001+space+odyssey)
+### Search for movie info by title or IMDb id.
+```
+GET /movie/?title=2001+space+odyssey
+GET /movie/?imdb=tt0120915
+```
+### Response Format:
 ```json
 {
     "title": "2001: A Space Odyssey",
@@ -19,13 +24,11 @@ ___
     "genre": "Sci-Fi",
     "director": "Stanley Kubrick",
     "writer": "Stanley Kubrick",
-    "actors": [
+    "cast": [
         "Keir Dullea",
         "Gary Lockwood",
         "William Sylvester",
         "Daniel Richter",
-        "John Hurt",
-        "David Bowman",
     ],
     "plot": "\"2001\" is a story of evolution. Sometime in the distant past, someone or something nudged evolution by placing a monolith on Earth (presumably elsewhere throughout the universe as well). Evolution then enabled humankind to reach the moon's surface, where yet another monolith is found, one that signals the monolith placers that humankind has evolved that far. Now a race begins between computers (HAL) and human (Bowman) to reach the monolith placers. The winner will achieve the next step in evolution, whatever that may be.",
     "awards": "Won 1 Oscar. 16 wins & 12 nominations total",
