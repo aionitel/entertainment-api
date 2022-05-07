@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/oranges0da/go-server/model"
+	"github.com/oranges0da/entertainment-api/model"
 )
 
 // get movie by name in query param

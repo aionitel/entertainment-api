@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/oranges0da/go-server/handler"
+	"github.com/oranges0da/entertainment-api/handler"
 )
 
 // RunServer start server and quit if error occurs or user quits

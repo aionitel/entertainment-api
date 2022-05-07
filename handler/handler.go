@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	service "github.com/oranges0da/go-server/service/movie"
+	service "github.com/oranges0da/entertainment-api/service/movie"
 )
 
 type Config struct {
