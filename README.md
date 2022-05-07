@@ -7,7 +7,10 @@
 You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
 ___
 ## Movies
-'''
-example := "Hello, World!"
-'''
-go
+```go
+package main
+
+func main() {
+    println("Hello World.")
+}
+```
