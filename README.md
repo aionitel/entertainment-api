@@ -7,9 +7,9 @@
 You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
 ___
 ## Movies
-___
 ### Endpoints
-/movie/:name (example: /movie/t?=2001+space+odyssey)
+___
+### Search for movie info by title. /movie/:title (/movie/?title=2001+space+odyssey)
 ```json
 {
     "title": "2001: A Space Odyssey",
@@ -27,6 +27,15 @@ ___
         "John Hurt",
         "David Bowman",
     ],
-
+    "plot": "\"2001\" is a story of evolution. Sometime in the distant past, someone or something nudged evolution by placing a monolith on Earth (presumably elsewhere throughout the universe as well). Evolution then enabled humankind to reach the moon's surface, where yet another monolith is found, one that signals the monolith placers that humankind has evolved that far. Now a race begins between computers (HAL) and human (Bowman) to reach the monolith placers. The winner will achieve the next step in evolution, whatever that may be.",
+    "awards": "Won 1 Oscar. 16 wins & 12 nominations total",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "ratings": [
+        {"Source":"Internet Movie Database","Value":"8.3/10"},
+        {"Source":"Rotten Tomatoes","Value":"92%"},
+        {"Source":"Metacritic","Value":"84/100"}
+    ],
+    "metascore": "84",
+    "imdb_rating": "8.3",
 }
 ```
