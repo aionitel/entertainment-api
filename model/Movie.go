@@ -1,5 +1,10 @@
 package model
 
+type Rating struct {
+	Source string `json:"source"`
+	Value  string `json:"value"`
+}
+
 type Movie struct {
 	Title      string   `json:"title"`
 	Year       string   `json:"year"`
@@ -12,7 +17,7 @@ type Movie struct {
 	Plot       string   `json:"plot"`
 	Awards     string   `json:"awards"`
 	Poster     string   `json:"poster"`
-	Ratings    []string `json:"ratings"`
+	Ratings    []Rating `json:"ratings"`
 	Metascore  string   `json:"metascore"`
 	IMDBRating string   `json:"imdb_rating"`
 }
@@ -29,7 +34,7 @@ func NewMovie( // to create new Movie object
 	plot string,
 	awards string,
 	poster string,
-	ratings []string,
+	ratings []Rating,
 	metascore string,
 	imdbRating string,
 ) *Movie {
