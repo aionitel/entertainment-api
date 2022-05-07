@@ -7,10 +7,26 @@
 You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
 ___
 ## Movies
-```go
-package main
+___
+### Endpoints
+/movie/:name (example: /movie/t?=2001+space+odyssey)
+```json
+{
+    "title": "2001: A Space Odyssey",
+    "year": "1968",
+    "age_rating": "G",
+    "runtime": "149 min",
+    "genre": "Sci-Fi",
+    "director": "Stanley Kubrick",
+    "writer": "Stanley Kubrick",
+    "actors": [
+        "Keir Dullea",
+        "Gary Lockwood",
+        "William Sylvester",
+        "Daniel Richter",
+        "John Hurt",
+        "David Bowman",
+    ],
 
-func main() {
-    println("Hello World.")
 }
 ```
