@@ -1,5 +1,10 @@
 # Entertainment API
 #### API for data about movies, TV shows, books, and comics.
 ---
-### Built with [Gin.](https://gin-gonic.com/)
-![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fraw.githubusercontent.com%2Fgin-gonic%2Flogo%2Fmaster%2Fcolor.png&f=1&nofb=1)
+### Built with [Gin.](https://gin-gonic.com/)  ![](https://www.chetu.com/img/technology-logo/gin-gonic.png)
+
+### Requirements
+You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
+___
+### Return Types
+'return false'
