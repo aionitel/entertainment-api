@@ -5,6 +5,9 @@
 ---
 ### Requirements
 You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
-
-### Return Types
-'return false'
+___
+## Movies
+'''
+example := "Hello, World!"
+'''
+go
