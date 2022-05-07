@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/oranges0da/go-server/handler"
 )
@@ -17,6 +18,10 @@ func RunServer(server *http.Server) {
 
 func main() {
 	router := gin.New()
+
+	router.Use(cors.New(cors.Config{
+		AllowAllOrigins: true,
+	}))
 
 	handler.NewHandler(&handler.Config{
 		R: router,
