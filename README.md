@@ -37,6 +37,8 @@ GET /movie/?imdb=tt0120915
         ],
         "Metascore": "84",
         "imdbRating": "8.3",
+        "DVD": "23 Oct 2007",
+        "BoxOffice": "$26,617,553",
     },
     "errors": [],
 }
