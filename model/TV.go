@@ -15,6 +15,7 @@ type TV struct {
 	Ratings      []Rating `json:"Ratings"`
 	Metascore    string   `json:"Metascore"`
 	IMDBRating   string   `json:"imdbRating"`
+	IMDBID       string   `json:"imdbID"`
 	DVDRelease   string   `json:"DVD"`
 	BoxOffice    string   `json:"BoxOffice"`
 	TotalSeasons string   `json:"totalSeasons"`
@@ -35,6 +36,7 @@ func NewTV( // to create new Movie object
 	ratings []Rating,
 	metascore string,
 	imdbRating string,
+	imdbID string,
 	dvdRelease string,
 	boxOffice string,
 	totalSeasons string,
@@ -54,6 +56,7 @@ func NewTV( // to create new Movie object
 		Ratings:      ratings,
 		Metascore:    metascore,
 		IMDBRating:   imdbRating,
+		IMDBID:       imdbID,
 		DVDRelease:   dvdRelease,
 		BoxOffice:    boxOffice,
 		TotalSeasons: totalSeasons,
