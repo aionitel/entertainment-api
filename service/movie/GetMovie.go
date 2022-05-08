@@ -69,17 +69,19 @@ func GetMovie() gin.HandlerFunc {
 		movieTitle := c.Query("title")
 		imdb := c.Query("imdb")
 
-		if movieTitle != "" {
+		if movieTitle != "" { // send request by title
 			movieData := GetMovieByTitle(utils.HttpClient(), movieTitle)
 
 			c.JSON(200, gin.H{
-				"data": movieData,
+				"data":   movieData,
+				"errors": []string{},
 			})
-		} else if imdb != "" {
+		} else if imdb != "" { // send request by imdb id
 			movieData := GetMovieByID(utils.HttpClient(), imdb)
 
 			c.JSON(200, gin.H{
-				"data": movieData,
+				"data":   movieData,
+				"errors": []string{},
 			})
 		}
 	}

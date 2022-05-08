@@ -20,6 +20,8 @@ type Movie struct {
 	Ratings    []Rating `json:"Ratings"`
 	Metascore  string   `json:"Metascore"`
 	IMDBRating string   `json:"imdbRating"`
+	DVDRelease string   `json:"DVD"`
+	BoxOffice  string   `json:"BoxOffice"`
 }
 
 func NewMovie( // to create new Movie object
@@ -37,6 +39,8 @@ func NewMovie( // to create new Movie object
 	ratings []Rating,
 	metascore string,
 	imdbRating string,
+	dvdRelease string,
+	boxOffice string,
 ) *Movie {
 	return &Movie{
 		Title:      title,
@@ -53,5 +57,7 @@ func NewMovie( // to create new Movie object
 		Ratings:    ratings,
 		Metascore:  metascore,
 		IMDBRating: imdbRating,
+		DVDRelease: dvdRelease,
+		BoxOffice:  boxOffice,
 	}
 }
