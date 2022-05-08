@@ -22,3 +22,5 @@ go.work
 env/
 /env
 /.env
+env.local
+.env.local
