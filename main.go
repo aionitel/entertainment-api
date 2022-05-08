@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"github.com/oranges0da/entertainment-api/handler"
 )
 
@@ -19,6 +20,8 @@ func RunServer(server *http.Server) {
 }
 
 func main() {
+	godotenv.Load(".env") // load env variables
+
 	router := gin.New()
 
 	router.Use(cors.New(cors.Config{
