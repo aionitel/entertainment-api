@@ -13,7 +13,7 @@ type Movie struct {
 	Genre      string   `json:"Genre"`
 	Director   string   `json:"Director"`
 	Writer     string   `json:"Writer"`
-	Cast       []string `json:"Actors"`
+	Cast       string   `json:"Actors"`
 	Plot       string   `json:"Plot"`
 	Awards     string   `json:"Awards"`
 	Poster     string   `json:"Poster"`
@@ -30,7 +30,7 @@ func NewMovie( // to create new Movie object
 	genre string,
 	director string,
 	writer string,
-	cast []string,
+	cast string,
 	plot string,
 	awards string,
 	poster string,

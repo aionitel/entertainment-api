@@ -1,14 +1,13 @@
 package service
 
 import (
-	"encoding/json"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/oranges0da/entertainment-api/model"
+	"github.com/oranges0da/entertainment-api/service/utils"
 )
 
 // get movie details by name in query param
@@ -16,7 +15,6 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 	key := os.Getenv("API_KEY")
 
 	var url string = "http://www.omdbapi.com/?t=" + title + "&apikey=" + key
-
 	log.Print(url)
 
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
@@ -27,13 +25,13 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 
 	res, err := client.Do(req) // send request
 
-	defer res.Body.Close()
+	if err != nil {
+		panic(err)
+	}
 
-	body, err := ioutil.ReadAll(res.Body)
+	defer res.Body.Close() // close the body after reading
 
-	var data model.Movie
-
-	err = json.Unmarshal(body, &data)
+	data := utils.UnpackMovie(res) // utils function that unmarshalls the res
 
 	return data
 }
