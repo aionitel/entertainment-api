@@ -6,20 +6,20 @@ type Rating struct {
 }
 
 type Movie struct {
-	Title      string   `json:"title"`
-	Year       string   `json:"year"`
-	AgeRating  string   `json:"age_rating"`
-	Runtime    string   `json:"runtime"`
-	Genre      string   `json:"genre"`
-	Director   string   `json:"director"`
-	Writer     string   `json:"writer"`
-	Cast       []string `json:"cast"`
-	Plot       string   `json:"plot"`
-	Awards     string   `json:"awards"`
-	Poster     string   `json:"poster"`
-	Ratings    []Rating `json:"ratings"`
-	Metascore  string   `json:"metascore"`
-	IMDBRating string   `json:"imdb_rating"`
+	Title      string   `json:"Title"`
+	Year       string   `json:"Year"`
+	AgeRating  string   `json:"Rated"`
+	Runtime    string   `json:"Runtime"`
+	Genre      string   `json:"Genre"`
+	Director   string   `json:"Director"`
+	Writer     string   `json:"Writer"`
+	Cast       []string `json:"Actors"`
+	Plot       string   `json:"Plot"`
+	Awards     string   `json:"Awards"`
+	Poster     string   `json:"Poster"`
+	Ratings    []Rating `json:"Ratings"`
+	Metascore  string   `json:"Metascore"`
+	IMDBRating string   `json:"imdbRating"`
 }
 
 func NewMovie( // to create new Movie object
