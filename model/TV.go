@@ -1,6 +1,6 @@
 package model
 
-type Movie struct {
+type TV struct {
 	Title      string   `json:"Title"`
 	Year       string   `json:"Year"`
 	AgeRating  string   `json:"Rated"`
@@ -19,7 +19,7 @@ type Movie struct {
 	BoxOffice  string   `json:"BoxOffice"`
 }
 
-func NewMovie( // to create new Movie object
+func NewTV( // to create new Movie object
 	title string,
 	year string,
 	ageRating string,
