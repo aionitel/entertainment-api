@@ -6,9 +6,10 @@
 ### Requirements
 You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
 ___
-## Movies
-### Endpoints
-___
+
+## Endpoints
+---
+### Movies
 ### Search for movie info by title or IMDb id.
 ```
 GET /movie/?title=2001+space+odyssey
