@@ -46,10 +46,12 @@ func GetMovie() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		movieTitle := c.Query("title")
 
-		data := GetMovieByTitle(http.DefaultClient, movieTitle)
+		if movieTitle != "" {
+			movieData := GetMovieByTitle(http.DefaultClient, movieTitle)
 
-		c.JSON(200, gin.H{
-			"data": data,
-		})
+			c.JSON(200, gin.H{
+				"data": movieData,
+			})
+		}
 	}
 }
