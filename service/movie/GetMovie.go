@@ -37,7 +37,7 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 }
 
 // get movie by imdb id in query param
-func GetMovieByID(id string) {
+func GetMovieByID(client *http.Client, id string) {
 
 }
 
@@ -47,7 +47,7 @@ func GetMovie() gin.HandlerFunc {
 		movieTitle := c.Query("title")
 
 		if movieTitle != "" {
-			movieData := GetMovieByTitle(http.DefaultClient, movieTitle)
+			movieData := GetMovieByTitle(utils.HttpClient(), movieTitle)
 
 			c.JSON(200, gin.H{
 				"data": movieData,
