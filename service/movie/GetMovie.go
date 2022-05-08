@@ -11,10 +11,10 @@ import (
 )
 
 // get movie by name in query param
-func GetMovieByTitle(client *http.Client, title string) *http.Response {
+func GetMovieByTitle(client *http.Client, title string) error {
 	key := os.Getenv("API_KEY")
 
-	var url string = "http://www.omdbapi.com/?apikey=[" + key + "]&t=" + title
+	var url string = "http://www.omdbapi.com/?t=" + title + "&apikey=" + key
 
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
 
@@ -32,9 +32,9 @@ func GetMovieByTitle(client *http.Client, title string) *http.Response {
 
 	body, err := ioutil.ReadAll(res.Body) // read body
 
-	data := json.Unmarshal(body, &model.Movie)
+	data := json.Unmarshal(body, &model.Movie{})
 
-	return res
+	return data
 }
 
 // get movie by imdb id in query param
@@ -47,10 +47,10 @@ func GetMovie() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		movieTitle := c.Query("title")
 
-		res := GetMovieByTitle(http.DefaultClient, movieTitle)
+		data := GetMovieByTitle(http.DefaultClient, movieTitle)
 
 		c.JSON(200, gin.H{
-			"data": string(res),
+			"data": data,
 		})
 	}
 }

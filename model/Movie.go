@@ -1,8 +1,8 @@
 package model
 
 type Rating struct {
-	Source string `json:"source"`
-	Value  string `json:"value"`
+	Source string `json:"Source"`
+	Value  string `json:"Value"`
 }
 
 type Movie struct {
