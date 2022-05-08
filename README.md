@@ -5,6 +5,7 @@
 ---
 ### Requirements
 You will need Go / Golang version 1.14 or higher to run this application. (Preferably 1.18 or latest).
+All dependencies included in [go.mod](https://github.com/oranges0da/entertainment-api/blob/main/go.mod) file.
 ___
 
 ## Endpoints
