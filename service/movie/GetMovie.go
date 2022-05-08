@@ -37,17 +37,46 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 }
 
 // get movie by imdb id in query param
-func GetMovieByID(client *http.Client, id string) {
+func GetMovieByID(client *http.Client, id string) model.Movie {
+	key := os.Getenv("API_KEY")
 
+	var url string = "http://www.omdbapi.com/?i=" + id + "&apikey=" + key
+	log.Print(url)
+
+	req, err := http.NewRequest("GET", url, nil) // create request, not send it
+
+	if err != nil {
+		panic(err)
+	}
+
+	res, err := client.Do(req) // send request
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer res.Body.Close() // close the body after reading
+
+	data := utils.UnpackMovie(res) // utils function that unmarshalls the res
+
+	return data
 }
 
 // main function that sends requests using HttpClient
 func GetMovie() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		// get query params for either title or imdb id
 		movieTitle := c.Query("title")
+		imdb := c.Query("imdb")
 
 		if movieTitle != "" {
 			movieData := GetMovieByTitle(utils.HttpClient(), movieTitle)
+
+			c.JSON(200, gin.H{
+				"data": movieData,
+			})
+		} else if imdb != "" {
+			movieData := GetMovieByID(utils.HttpClient(), imdb)
 
 			c.JSON(200, gin.H{
 				"data": movieData,

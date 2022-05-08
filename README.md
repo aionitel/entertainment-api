@@ -42,6 +42,7 @@ GET /movie/?imdb=tt0120915
         ],
         "metascore": "84",
         "imdb_rating": "8.3",
-    }
+    },
+    "errors": [],
 }
 ```
