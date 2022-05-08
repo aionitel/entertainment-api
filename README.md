@@ -8,7 +8,7 @@ You will need Go / Golang version 1.14 or higher to run this application. (Prefe
 ___
 
 ## Endpoints
-___
+
 ### Movies
 ### Search for movie info by title or IMDb id.
 ```
