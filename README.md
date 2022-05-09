@@ -45,3 +45,44 @@ GET /movie/?imdb=tt0120915
     "errors": [],
 }
 ```
+### TV Shows
+### Search for a TV show info by title or IMDb id.
+```
+GET /tv/?title=breaking+bad
+GET /tv/?imdb=tt0903747
+```
+### Response Format:
+```json
+{
+    "data": {
+        "Title": "Breaking Bad",
+        "Year": "2008–2013",
+        "Rated": "TV-MA",
+        "Runtime": "49 min",
+        "Genre": "Crime, Drama, Thriller",
+        "Director": "N/A",
+        "Writer": "Vince Gilligan",
+        "Actors": "Bryan Cranston, Aaron Paul, Anna Gunn",
+        "Plot": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
+        "Awards": "Won 16 Primetime Emmys. 154 wins & 247 nominations total",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BZTE2YWRlMmYtOGFkYy00MjcxLWJkNmQtNTJmNTZkZjVhZGE1XkEyXkFqcGdeQXVyMTMzNDExODE5._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "9.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "96%"
+            }
+        ],
+        "Metascore": "N/A",
+        "imdbRating": "9.5",
+        "imdbID": "tt0903747",
+        "DVD": "",
+        "BoxOffice": "",
+        "totalSeasons": "5"
+    },
+    "errors": []
+}
+```
