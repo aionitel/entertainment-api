@@ -10,8 +10,7 @@ import (
 	"github.com/oranges0da/entertainment-api/service/utils"
 )
 
-// get movie details by name in query param
-func GetMovieByTitle(client *http.Client, title string) model.Movie {
+func GetTVByTitle(client *http.Client, title string) model.TV {
 	key := os.Getenv("API_KEY")
 
 	var url string = "http://www.omdbapi.com/?t=" + title + "&apikey=" + key
@@ -31,13 +30,12 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackMovie(res) // utils function that unmarshalls the res
+	data := utils.UnpackTV(res) // utils function that unmarshalls the res
 
 	return data
 }
 
-// get movie by imdb id in query param
-func GetMovieByID(client *http.Client, id string) model.Movie {
+func GetTVByID(client *http.Client, id string) model.TV {
 	key := os.Getenv("API_KEY")
 
 	var url string = "http://www.omdbapi.com/?i=" + id + "&apikey=" + key
@@ -57,30 +55,29 @@ func GetMovieByID(client *http.Client, id string) model.Movie {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackMovie(res) // utils function that unmarshalls the res
+	data := utils.UnpackTV(res) // utils function that unmarshalls the res
 
 	return data
 }
 
-// main function that sends requests using HttpClient
-func GetMovie() gin.HandlerFunc {
+func GetTV() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// get query params for either title or imdb id
-		movieTitle := c.Query("title")
+		tvTitle := c.Query("title")
 		imdb := c.Query("imdb")
 
-		if movieTitle != "" { // send request by title
-			movieData := GetMovieByTitle(utils.HttpClient(), movieTitle)
+		if tvTitle != "" { // send request by title
+			tvData := GetTVByTitle(utils.HttpClient(), tvTitle)
 
 			c.JSON(200, gin.H{
-				"data":   movieData,
+				"data":   tvData,
 				"errors": []string{},
 			})
 		} else if imdb != "" { // send request by imdb id
-			movieData := GetMovieByID(utils.HttpClient(), imdb)
+			tvData := GetTVByID(utils.HttpClient(), imdb)
 
 			c.JSON(200, gin.H{
-				"data":   movieData,
+				"data":   tvData,
 				"errors": []string{},
 			})
 		} else {

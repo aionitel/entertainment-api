@@ -2,7 +2,8 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	service "github.com/oranges0da/entertainment-api/service/movie"
+	movie "github.com/oranges0da/entertainment-api/service/movie"
+	tv "github.com/oranges0da/entertainment-api/service/tv"
 )
 
 type Config struct {
@@ -10,8 +11,13 @@ type Config struct {
 }
 
 func NewHandler(c *Config) {
-	g := c.R.Group("/movie") // movie endpoint
+	movieGroup := c.R.Group("/movie") // movie endpoint
 	{
-		g.GET("/", service.GetMovie())
+		movieGroup.GET("/", movie.GetMovie())
+	}
+
+	TVGroup := c.R.Group("/tv") // tv endpoint
+	{
+		TVGroup.GET("/", tv.GetTV())
 	}
 }
