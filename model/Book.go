@@ -2,6 +2,7 @@ package model
 
 type Book struct {
 	Title          string   `json:"title"`
+	Subtitle       string   `json:"subtitle"`
 	Authors        []string `json:"authors"`
 	Publisher      string   `json:"publisher"`
 	PublishedDate  string   `json:"publishedDate"`
@@ -18,6 +19,7 @@ type Book struct {
 
 func NewBook(
 	title string,
+	subtitle string,
 	authors []string,
 	publisher string,
 	publishedDate string,
@@ -33,6 +35,7 @@ func NewBook(
 ) *Book {
 	return &Book{
 		Title:          title,
+		Subtitle:       subtitle,
 		Authors:        authors,
 		Publisher:      publisher,
 		PublishedDate:  publishedDate,
