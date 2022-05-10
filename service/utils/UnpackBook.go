@@ -11,9 +11,10 @@ import (
 
 func UnpackBook(res *http.Response) model.Book {
 	body, err := ioutil.ReadAll(res.Body) // read res body
+	log.Printf("JSON body: " + string(body))
 
 	if err != nil {
-		panic(err)
+		log.Printf("Error reading body: " + err.Error())
 	}
 
 	var data model.Book

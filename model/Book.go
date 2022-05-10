@@ -1,8 +1,17 @@
 package model
 
 type VolumeInfo struct {
-	Title   string   `json:"title"`
-	Authors []string `json:"authors"`
+	Title          string      `json:"title"`
+	Authors        []string    `json:"authors"`
+	Publisher      string      `json:"publisher"`
+	PublishedDate  string      `json:"publishedDate"`
+	Desc           string      `json:"description"`
+	PageCount      int         `json:"pageCount"`
+	PrintType      string      `json:"printType"`
+	AverageRating  float32     `json:"averageRating"`
+	MaturityRating string      `json:"maturityRating"`
+	ImageLinks     CoverImages `json:"imageLinks"`
+	Language       string      `json:"language"`
 }
 
 type CoverImages struct {
@@ -11,14 +20,10 @@ type CoverImages struct {
 }
 
 type Item struct {
-	VolumeInfo     VolumeInfo  `json:"volumeInfo"`
-	Publisher      string      `json:"publisher"`
-	PublishedDate  string      `json:"publishedDate"`
-	PageCount      string      `json:"pageCount"`
-	PrintType      string      `json:"printType"`
-	MaturityRating string      `json:"maturityRating"`
-	ImageLinks     CoverImages `json:"imageLinks"`
-	Language       string      `json:"language"`
+	Kind       string     `json:"kind"`
+	ID         string     `json:"id"`
+	Etag       string     `json:"etag"`
+	VolumeInfo VolumeInfo `json:"volumeInfo"`
 }
 
 type Book struct {

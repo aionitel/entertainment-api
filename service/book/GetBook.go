@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/oranges0da/entertainment-api/model"
@@ -36,8 +37,8 @@ func GetMovieByTitle(client *http.Client, title string) model.Book {
 
 func GetBook() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		bookTitle := c.Query("title") // get title from url
-		log.Printf("bookTitle param: " + bookTitle)
+		queryTitle := c.Query("title")                        // get title from url
+		bookTitle := strings.ReplaceAll(queryTitle, " ", "+") // replace space with + for annoying query
 
 		data := GetMovieByTitle(utils.HttpClient(), bookTitle) // get movie by title
 
