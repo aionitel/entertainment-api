@@ -13,7 +13,31 @@ import (
 
 func GetMovieByTitle(client *http.Client, title string) model.Book {
 	key := os.Getenv("BOOK_KEY") // get key to book api from env
-	var url string = "https://www.googleapis.com/books/v1/volumes?q=" + title + "&key=" + key
+	var url string = "https://www.googleapis.com/books/v1/volumes?q=" + title + "&key=" + key + "&intitle"
+	log.Print(url)
+
+	req, err := http.NewRequest("GET", url, nil) // create request, not send it
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	res, err := client.Do(req) // send request
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer res.Body.Close() // close the body after reading
+
+	data := utils.UnpackBook(res)
+
+	return data
+}
+
+func GetBookByAuthor(client *http.Client, author string) model.Book {
+	key := os.Getenv("BOOK_KEY") // get key to book api from env
+	var url string = "https://www.googleapis.com/books/v1/volumes?q=" + author + "&key=" + key + "&inauthor"
 	log.Print(url)
 
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
@@ -37,14 +61,26 @@ func GetMovieByTitle(client *http.Client, title string) model.Book {
 
 func GetBook() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		queryTitle := c.Query("title")                        // get title from url
-		bookTitle := strings.ReplaceAll(queryTitle, " ", "+") // replace space with + for annoying query
+		titleQuery := c.Query("title")                        // get title from url
+		bookTitle := strings.ReplaceAll(titleQuery, " ", "+") // replace space with + for annoying query
 
-		data := GetMovieByTitle(utils.HttpClient(), bookTitle) // get movie by title
+		authorQuery := c.Query("author")                    // get author from url
+		author := strings.ReplaceAll(authorQuery, " ", "+") // replace space with + for annoying query
 
-		c.JSON(http.StatusOK, gin.H{
-			"data":   data,
-			"errors": []string{},
-		})
+		if bookTitle != "" {
+			bookData := GetMovieByTitle(http.DefaultClient, bookTitle)
+
+			c.JSON(http.StatusOK, gin.H{
+				"data":   bookData,
+				"errors": []string{},
+			})
+		} else if author != "" {
+			bookData := GetBookByAuthor(http.DefaultClient, author)
+
+			c.JSON(http.StatusOK, gin.H{
+				"data":   bookData,
+				"errors": []string{},
+			})
+		}
 	}
 }
