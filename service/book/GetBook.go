@@ -5,7 +5,9 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gin-gonic/gin"
 	"github.com/oranges0da/entertainment-api/model"
+	"github.com/oranges0da/entertainment-api/service/utils"
 )
 
 func GetMovieByTitle(client *http.Client, title string) model.Book {
@@ -30,4 +32,17 @@ func GetMovieByTitle(client *http.Client, title string) model.Book {
 	data := utils.UnpackBook(res)
 
 	return data
+}
+
+func GetBook() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		bookTitle := c.Query("title") // get title from url
+
+		data := GetMovieByTitle(utils.HttpClient(), bookTitle) // get movie by title
+
+		c.JSON(http.StatusOK, gin.H{
+			"data":   data,
+			"errors": []string{},
+		})
+	}
 }

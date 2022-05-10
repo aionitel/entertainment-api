@@ -1,52 +1,43 @@
 package model
 
+type VolumeInfo struct {
+	Title   string   `json:"title"`
+	Authors []string `json:"authors"`
+}
+
+type CoverImages struct {
+	SmallThumbnail string `json:"smallThumbnail"`
+	Thumbnail      string `json:"thumbnail"`
+}
+
+type Item struct {
+	VolumeInfo     VolumeInfo  `json:"volumeInfo"`
+	Publisher      string      `json:"publisher"`
+	PublishedDate  string      `json:"publishedDate"`
+	Desc           string      `json:"description"`
+	PageCount      string      `json:"pageCount"`
+	PrintType      string      `json:"printType"`
+	Categories     []string    `json:"categories"`
+	AverageRaing   float32     `json:"averageRating"`
+	MaturityRating string      `json:"maturityRating"`
+	ImageLinks     CoverImages `json:"imageLinks"`
+	Language       string      `json:"language"`
+}
+
 type Book struct {
-	Title          string   `json:"title"`
-	Subtitle       string   `json:"subtitle"`
-	Authors        []string `json:"authors"`
-	Publisher      string   `json:"publisher"`
-	PublishedDate  string   `json:"publishedDate"`
-	Desc           string   `json:"description"`
-	PageCount      int      `json:"pageCount"`
-	PrintType      string   `json:"printType"`
-	Categories     []string `json:"categories"`
-	AverageRating  float32  `json:"averageRating"`
-	MaturityRating string   `json:"maturityRating"`
-	Cover          string   `json:"imageLinks"`
-	Language       string   `json:"language"`
-	PublicDomain   bool     `json:"publicDomain"`
+	Kind       string `json:"kind"`
+	TotalItems int    `json:"totalItems"`
+	Items      []Item `json:"items"`
 }
 
 func NewBook(
-	title string,
-	subtitle string,
-	authors []string,
-	publisher string,
-	publishedDate string,
-	desc string,
-	pageCount int,
-	printType string,
-	categories []string,
-	averageRating float32,
-	maturityRating string,
-	cover string,
-	language string,
-	publicDomain bool,
+	kind string,
+	totalItems int,
+	items []Item,
 ) *Book {
 	return &Book{
-		Title:          title,
-		Subtitle:       subtitle,
-		Authors:        authors,
-		Publisher:      publisher,
-		PublishedDate:  publishedDate,
-		Desc:           desc,
-		PageCount:      pageCount,
-		PrintType:      printType,
-		Categories:     categories,
-		AverageRating:  averageRating,
-		MaturityRating: maturityRating,
-		Cover:          cover,
-		Language:       language,
-		PublicDomain:   publicDomain,
+		Kind:       kind,
+		TotalItems: totalItems,
+		Items:      items,
 	}
 }

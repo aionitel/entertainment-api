@@ -2,6 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
+	book "github.com/oranges0da/entertainment-api/service/book"
 	movie "github.com/oranges0da/entertainment-api/service/movie"
 	tv "github.com/oranges0da/entertainment-api/service/tv"
 )
@@ -19,5 +20,10 @@ func NewHandler(c *Config) {
 	TVGroup := c.R.Group("/tv") // tv endpoint
 	{
 		TVGroup.GET("/", tv.GetTV())
+	}
+
+	BookGroup := c.R.Group("/book") // book endpoint
+	{
+		BookGroup.GET("/", book.GetBook())
 	}
 }
