@@ -117,26 +117,7 @@ GET /book/?title=dune
                     "language": "en"
                 }
             },
-            {
-                "volumeInfo": {
-                    "title": "Dune",
-                    "authors": [
-                        "Frank Herbert"
-                    ],
-                    "publisher": "Berkley Publishing Group",
-                    "publishedDate": "1982",
-                    "description": "Paul Atreides moves with his family to the planet Dune and is forced into exile when his father's government is overthrown. The first book in the series. Copyright © Libri GmbH. All rights reserved.",
-                    "pageCount": 517,
-                    "printType": "BOOK",
-                    "averageRating": 4,
-                    "maturityRating": "NOT_MATURE",
-                    "imageLinks": {
-                        "smallThumbnail": "http://books.google.com/books/content?id=0JUrAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-                        "thumbnail": "http://books.google.com/books/content?id=0JUrAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-                    },
-                    "language": "en"
-                }
-            },
-        ...
-    "errors": []
+        ]
+    "errors": [],
+}
 ```
