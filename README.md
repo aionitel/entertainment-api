@@ -86,3 +86,57 @@ GET /tv/?imdb=tt0903747
     "errors": []
 }
 ```
+### Books
+### Search for a book info by title.
+```
+GET /book/?title=dune
+```
+### Response Format:
+```json
+{
+    "data": {
+        "totalItems": 2003,
+        "items": [
+            {
+                "volumeInfo": {
+                    "title": "Dune",
+                    "authors": [
+                        "Frank Herbert"
+                    ],
+                    "publisher": "Penguin",
+                    "publishedDate": "2005",
+                    "description": "Follows the adventures of Paul Atreides, the son of a betrayed duke given up for dead on a treacherous desert planet and adopted by its fierce, nomadic people, who help him unravel his most unexpected destiny.",
+                    "pageCount": 528,
+                    "printType": "BOOK",
+                    "averageRating": 4.5,
+                    "maturityRating": "NOT_MATURE",
+                    "imageLinks": {
+                        "smallThumbnail": "http://books.google.com/books/content?id=B1hSG45JCX4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                        "thumbnail": "http://books.google.com/books/content?id=B1hSG45JCX4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                    },
+                    "language": "en"
+                }
+            },
+            {
+                "volumeInfo": {
+                    "title": "Dune",
+                    "authors": [
+                        "Frank Herbert"
+                    ],
+                    "publisher": "Berkley Publishing Group",
+                    "publishedDate": "1982",
+                    "description": "Paul Atreides moves with his family to the planet Dune and is forced into exile when his father's government is overthrown. The first book in the series. Copyright © Libri GmbH. All rights reserved.",
+                    "pageCount": 517,
+                    "printType": "BOOK",
+                    "averageRating": 4,
+                    "maturityRating": "NOT_MATURE",
+                    "imageLinks": {
+                        "smallThumbnail": "http://books.google.com/books/content?id=0JUrAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                        "thumbnail": "http://books.google.com/books/content?id=0JUrAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+                    },
+                    "language": "en"
+                }
+            },
+        ...
+    "errors": []
+```

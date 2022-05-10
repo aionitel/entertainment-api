@@ -20,14 +20,10 @@ type CoverImages struct {
 }
 
 type Item struct {
-	Kind       string     `json:"kind"`
-	ID         string     `json:"id"`
-	Etag       string     `json:"etag"`
 	VolumeInfo VolumeInfo `json:"volumeInfo"`
 }
 
 type Book struct {
-	Kind       string `json:"kind"`
 	TotalItems int    `json:"totalItems"`
 	Items      []Item `json:"items"`
 }
@@ -38,7 +34,6 @@ func NewBook(
 	items []Item,
 ) *Book {
 	return &Book{
-		Kind:       kind,
 		TotalItems: totalItems,
 		Items:      items,
 	}
