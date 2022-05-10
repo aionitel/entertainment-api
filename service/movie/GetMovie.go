@@ -38,7 +38,7 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 
 // get movie by imdb id in query param
 func GetMovieByID(client *http.Client, id string) model.Movie {
-	key := os.Getenv("API_KEY")
+	key := os.Getenv("MOVIE_KEY")
 
 	var url string = "http://www.omdbapi.com/?i=" + id + "&apikey=" + key
 	log.Print(url)

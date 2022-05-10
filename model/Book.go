@@ -14,11 +14,8 @@ type Item struct {
 	VolumeInfo     VolumeInfo  `json:"volumeInfo"`
 	Publisher      string      `json:"publisher"`
 	PublishedDate  string      `json:"publishedDate"`
-	Desc           string      `json:"description"`
 	PageCount      string      `json:"pageCount"`
 	PrintType      string      `json:"printType"`
-	Categories     []string    `json:"categories"`
-	AverageRaing   float32     `json:"averageRating"`
 	MaturityRating string      `json:"maturityRating"`
 	ImageLinks     CoverImages `json:"imageLinks"`
 	Language       string      `json:"language"`

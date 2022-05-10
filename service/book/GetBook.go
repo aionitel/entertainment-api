@@ -12,19 +12,19 @@ import (
 
 func GetMovieByTitle(client *http.Client, title string) model.Book {
 	key := os.Getenv("BOOK_KEY") // get key to book api from env
-	var url string = "https://www.googleapis.com/books/v1/volumes?q=" + title + "&apikey=" + key
+	var url string = "https://www.googleapis.com/books/v1/volumes?q=" + title + "&key=" + key
 	log.Print(url)
 
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
 
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	res, err := client.Do(req) // send request
 
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	defer res.Body.Close() // close the body after reading
@@ -37,6 +37,7 @@ func GetMovieByTitle(client *http.Client, title string) model.Book {
 func GetBook() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		bookTitle := c.Query("title") // get title from url
+		log.Printf("bookTitle param: " + bookTitle)
 
 		data := GetMovieByTitle(utils.HttpClient(), bookTitle) // get movie by title
 
