@@ -13,7 +13,7 @@ ___
 ### Movies
 ### Search for movie info by title or IMDb id.
 ```
-GET /movie/?title=2001+space+odyssey
+GET /movie/title/?q=2001+space+odyssey
 GET /movie/?imdb=tt0120915
 ```
 ### Response Format:
@@ -48,7 +48,7 @@ GET /movie/?imdb=tt0120915
 ### TV Shows
 ### Search for a TV show info by title or IMDb id.
 ```
-GET /tv/?title=breaking+bad
+GET /tv//title/?q=breaking+bad
 GET /tv/?imdb=tt0903747
 ```
 ### Response Format:
