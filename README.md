@@ -130,5 +130,33 @@ GET /music/artist/?q=jack+harlow
 GET /music/album/?q=come+home+the+kids+miss+you
 ```
 ```json
-
+{
+    "data": [
+        {
+            "title": "First Class",
+            "duration": 173,
+            "rank": 100000,
+            "explicit_lyrics": true,
+            "preview": "https://cdns-preview-5.dzcdn.net/stream/c-501db2aa7a1201b34c0dc6cd7ed69b15-3.mp3",
+            "artist": {
+                "name": "Jack Harlow",
+                "picture_small": "https://e-cdns-images.dzcdn.net/images/artist/7d5211931ac5ef6efe0a88e31ae5ab82/56x56-000000-80-0-0.jpg",
+                "picture_medium": "https://e-cdns-images.dzcdn.net/images/artist/7d5211931ac5ef6efe0a88e31ae5ab82/250x250-000000-80-0-0.jpg",
+                "picture_big": "https://e-cdns-images.dzcdn.net/images/artist/7d5211931ac5ef6efe0a88e31ae5ab82/500x500-000000-80-0-0.jpg",
+                "picture_xl": "https://e-cdns-images.dzcdn.net/images/artist/7d5211931ac5ef6efe0a88e31ae5ab82/1000x1000-000000-80-0-0.jpg",
+                "type": "artist"
+            },
+            "album": {
+                "title": "First Class",
+                "cover_small": "https://e-cdns-images.dzcdn.net/images/cover/8aa3f894894c7c7dfcce5df9eccababd/56x56-000000-80-0-0.jpg",
+                "cover_medium": "https://e-cdns-images.dzcdn.net/images/cover/8aa3f894894c7c7dfcce5df9eccababd/250x250-000000-80-0-0.jpg",
+                "cover_big": "https://e-cdns-images.dzcdn.net/images/cover/8aa3f894894c7c7dfcce5df9eccababd/500x500-000000-80-0-0.jpg",
+                "cover_xl": "https://e-cdns-images.dzcdn.net/images/cover/8aa3f894894c7c7dfcce5df9eccababd/1000x1000-000000-80-0-0.jpg",
+                "tracklist": "https://api.deezer.com/album/308990637/tracks",
+                "type": "album"
+            },
+            "type": "track"
+        },
+    ],
+}
 ```
