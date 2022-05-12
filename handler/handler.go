@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	book "github.com/oranges0da/entertainment-api/service/book"
 	movie "github.com/oranges0da/entertainment-api/service/movie"
+	music "github.com/oranges0da/entertainment-api/service/music"
 	tv "github.com/oranges0da/entertainment-api/service/tv"
 )
 
@@ -26,5 +27,10 @@ func NewHandler(c *Config) {
 	{
 		BookGroup.GET("/title", book.GetBook())
 		BookGroup.GET("/author", book.GetAuthor())
+	}
+
+	MusicGroup := c.R.Group("/music") // music endpoint
+	{
+		MusicGroup.GET("/title", music.GetTrack())
 	}
 }
