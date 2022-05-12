@@ -24,6 +24,7 @@ func NewHandler(c *Config) {
 
 	BookGroup := c.R.Group("/book") // book endpoint
 	{
-		BookGroup.GET("/", book.GetBook())
+		BookGroup.GET("/title", book.GetBook())
+		BookGroup.GET("/author", book.GetAuthor())
 	}
 }

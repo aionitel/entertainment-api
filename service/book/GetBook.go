@@ -61,26 +61,20 @@ func GetBookByAuthor(client *http.Client, author string) model.Book {
 
 func GetBook() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		titleQuery := c.Query("title")                        // get title from url
+		titleQuery := c.Query("q")                            // get title from url
 		bookTitle := strings.ReplaceAll(titleQuery, " ", "+") // replace space with + for annoying query
 
-		authorQuery := c.Query("author")                    // get author from url
-		author := strings.ReplaceAll(authorQuery, " ", "+") // replace space with + for annoying query
-
-		if bookTitle != "" {
-			bookData := GetMovieByTitle(http.DefaultClient, bookTitle)
-
-			c.JSON(http.StatusOK, gin.H{
-				"data":   bookData,
-				"errors": []string{},
-			})
-		} else if author != "" {
-			bookData := GetBookByAuthor(http.DefaultClient, author)
-
-			c.JSON(http.StatusOK, gin.H{
-				"data":   bookData,
-				"errors": []string{},
+		if bookTitle == "" {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": "Book's title is required.",
 			})
 		}
+
+		data := GetMovieByTitle(utils.HttpClient(), bookTitle)
+
+		c.JSON(http.StatusOK, gin.H{
+			"data":   data,
+			"errors": []string{},
+		})
 	}
 }
