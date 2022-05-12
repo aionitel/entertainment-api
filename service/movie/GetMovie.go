@@ -12,7 +12,7 @@ import (
 
 // get movie details by name in query param
 func GetMovieByTitle(client *http.Client, title string) model.Movie {
-	key := os.Getenv("API_KEY")
+	key := os.Getenv("MOVIE_KEY")
 
 	var url string = "http://www.omdbapi.com/?t=" + title + "&apikey=" + key
 	log.Print(url)

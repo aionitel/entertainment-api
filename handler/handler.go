@@ -19,7 +19,7 @@ func NewHandler(c *Config) {
 
 	TVGroup := c.R.Group("/tv") // tv endpoint
 	{
-		TVGroup.GET("/", tv.GetTV())
+		TVGroup.GET("/title", tv.GetTV())
 	}
 
 	BookGroup := c.R.Group("/book") // book endpoint

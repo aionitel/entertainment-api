@@ -13,7 +13,7 @@ func UnpackMovie(res *http.Response) model.Movie {
 	body, err := ioutil.ReadAll(res.Body) // read res body
 
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	var data model.Movie

@@ -44,13 +44,13 @@ func GetTVByID(client *http.Client, id string) model.TV {
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
 
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	res, err := client.Do(req) // send request
 
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	defer res.Body.Close() // close the body after reading
@@ -63,7 +63,7 @@ func GetTVByID(client *http.Client, id string) model.TV {
 func GetTV() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// get query params for either title or imdb id
-		tvTitle := c.Query("title")
+		tvTitle := c.Query("q")
 		imdb := c.Query("imdb")
 
 		if tvTitle != "" { // send request by title
