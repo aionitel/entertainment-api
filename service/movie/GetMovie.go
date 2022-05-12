@@ -66,7 +66,7 @@ func GetMovieByID(client *http.Client, id string) model.Movie {
 func GetMovie() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// get query params for either title or imdb id
-		movieTitle := c.Query("title")
+		movieTitle := c.Query("q")
 		imdb := c.Query("imdb")
 
 		if movieTitle != "" { // send request by title

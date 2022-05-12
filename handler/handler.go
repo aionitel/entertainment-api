@@ -14,7 +14,7 @@ type Config struct {
 func NewHandler(c *Config) {
 	movieGroup := c.R.Group("/movie") // movie endpoint
 	{
-		movieGroup.GET("/", movie.GetMovie())
+		movieGroup.GET("/title", movie.GetMovie())
 	}
 
 	TVGroup := c.R.Group("/tv") // tv endpoint
