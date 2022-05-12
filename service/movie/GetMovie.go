@@ -31,7 +31,7 @@ func GetMovieByTitle(client *http.Client, title string) model.Movie {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackMovie(res) // utils function that unmarshalls the res
+	data := utils.Unpack(res, model.Movie{}) // utils function that unmarshalls the res
 
 	return data
 }
@@ -57,7 +57,7 @@ func GetMovieByID(client *http.Client, id string) model.Movie {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackMovie(res) // utils function that unmarshalls the res
+	data := utils.Unpack(res, model.Movie{}) // utils function that unmarshalls the res
 
 	return data
 }

@@ -30,7 +30,7 @@ func GetMovieByTitle(client *http.Client, title string) model.Book {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackBook(res)
+	data := utils.Unpack(res, model.Book{})
 
 	return data
 }
@@ -54,7 +54,7 @@ func GetBookByAuthor(client *http.Client, author string) model.Book {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackBook(res)
+	data := utils.Unpack(res, model.Book{})
 
 	return data
 }

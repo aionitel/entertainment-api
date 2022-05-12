@@ -30,7 +30,7 @@ func GetTVByTitle(client *http.Client, title string) model.TV {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackTV(res) // utils function that unmarshalls the res
+	data := utils.Unpack(res, model.TV{}) // utils function that unmarshalls the res
 
 	return data
 }
@@ -55,7 +55,7 @@ func GetTVByID(client *http.Client, id string) model.TV {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackTV(res) // utils function that unmarshalls the res
+	data := utils.Unpack(res, model.TV{}) // utils function that unmarshalls the res
 
 	return data
 }

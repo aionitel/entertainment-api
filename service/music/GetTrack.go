@@ -27,7 +27,7 @@ func GetTrackByTitle(client *http.Client, title string) model.Music {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackTrack(res) // utils function that unmarshalls the res
+	data := utils.Unpack(res, model.Music{}) // utils function that unmarshalls the res
 
 	return data
 }

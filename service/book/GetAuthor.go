@@ -30,7 +30,7 @@ func GetAuthorByName(client *http.Client, name string) model.Book {
 
 	defer res.Body.Close() // close the body after reading
 
-	data := utils.UnpackBook(res)
+	data := utils.Unpack(res, model.Book{})
 
 	return data
 }
