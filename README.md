@@ -122,3 +122,13 @@ GET /book/author/?q=frank+herbert
     "errors": [],
 }
 ```
+### Music
+### Search for list of songs (and what album and arist they correspond to) and their info by title, artist, or album.
+```
+GET /music/song/?q=first+class
+GET /music/artist/?q=jack+harlow
+GET /music/album/?q=come+home+the+kids+miss+you
+```
+```json
+
+```

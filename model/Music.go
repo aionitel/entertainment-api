@@ -27,6 +27,7 @@ type Track struct {
 	Preview        string `json:"preview"`
 	Artist         Artist `json:"artist"`
 	Album          Album  `json:"album"`
+	Type           string `json:"type"`
 }
 
 type Music struct {

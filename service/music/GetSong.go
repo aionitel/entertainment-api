@@ -3,6 +3,7 @@ package service
 import (
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/oranges0da/entertainment-api/model"
@@ -10,7 +11,7 @@ import (
 )
 
 func GetSongByTitle(client *http.Client, title string) model.Music {
-	var url string = "https://api.deezer.com/search?q=title:\"" + title + "\""
+	var url string = "https://api.deezer.com/search?q=track:\"" + title + "\""
 	log.Print(url)
 
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
@@ -34,7 +35,8 @@ func GetSongByTitle(client *http.Client, title string) model.Music {
 
 func GetSong() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		trackTitle := c.Query("q")
+		trackQuery := c.Query("q")
+		trackTitle := strings.ReplaceAll(trackQuery, " ", "+")
 
 		data := GetSongByTitle(utils.HttpClient(), trackTitle)
 
