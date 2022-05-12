@@ -32,7 +32,7 @@ func NewHandler(c *Config) {
 	MusicGroup := c.R.Group("/music") // music endpoint
 	{
 		MusicGroup.GET("/song", music.GetSong())
-		// MusicGroup.GET("/artist", music.GetArtist())
-		// MusicGroup.GET("/album", music.GetAlbum())
+		MusicGroup.GET("/artist", music.GetArtist())
+		MusicGroup.GET("/album", music.GetAlbum())
 	}
 }
