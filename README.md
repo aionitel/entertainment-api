@@ -89,8 +89,8 @@ GET /tv/?imdb=tt0903747
 ### Books
 ### Search for list of books and their info by title or author.
 ```
-GET /book/?title=dune
-GET /book/?author=frank+herbert
+GET /book/title/?q=dune
+GET /book/author/?q=frank+herbert
 ```
 ### Response Format:
 ```json
