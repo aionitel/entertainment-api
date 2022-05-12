@@ -9,8 +9,8 @@ import (
 	"github.com/oranges0da/entertainment-api/service/utils"
 )
 
-func GetTrackByTitle(client *http.Client, title string) model.Music {
-	var url string = "https://api.deezer.com/track/search?q=title:\"" + title + "\""
+func GetSongByTitle(client *http.Client, title string) model.Music {
+	var url string = "https://api.deezer.com/search?q=title:\"" + title + "\""
 	log.Print(url)
 
 	req, err := http.NewRequest("GET", url, nil) // create request, not send it
@@ -32,11 +32,11 @@ func GetTrackByTitle(client *http.Client, title string) model.Music {
 	return data
 }
 
-func GetTrack() gin.HandlerFunc {
+func GetSong() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		trackTitle := c.Param("q")
+		trackTitle := c.Query("q")
 
-		data := GetTrackByTitle(utils.HttpClient(), trackTitle)
+		data := GetSongByTitle(utils.HttpClient(), trackTitle)
 
 		c.JSON(http.StatusOK, data)
 	}
