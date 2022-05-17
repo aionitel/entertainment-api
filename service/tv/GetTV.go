@@ -36,7 +36,7 @@ func GetTVByTitle(client *http.Client, title string) model.TV {
 }
 
 func GetTVByID(client *http.Client, id string) model.TV {
-	key := os.Getenv("API_KEY")
+	key := os.Getenv("TV_KEY")
 
 	var url string = "http://www.omdbapi.com/?i=" + id + "&apikey=" + key
 	log.Print(url)
