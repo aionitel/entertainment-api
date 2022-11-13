@@ -1,4 +1,5 @@
-# Entertainment API
+# 🥛 Milk API
+#### M (Moving) I (Interactive) L (Localized) K (Kontent)
 #### API for data about movies, TV shows, books, and comics.
 
 ### Built with [Gin.](https://gin-gonic.com/)![](https://www.chetu.com/img/technology-logo/gin-gonic.png)
