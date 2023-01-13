@@ -1,6 +1,6 @@
-# 🥛 Milk API
-#### M (Maybe) I (Interactive) L (Localized) K (Kontent)
+# Entertainment API
 #### API for data about movies, TV shows, books, and comics.
+#### Completely open-source and free to use.
 
 ### Built with [Gin.](https://gin-gonic.com/)![](https://www.chetu.com/img/technology-logo/gin-gonic.png)
 ---
