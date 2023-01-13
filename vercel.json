@@ -1,0 +1,3 @@
+{
+    "buildCommand": "go build main.go && ./main"
+}
