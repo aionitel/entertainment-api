@@ -22,6 +22,8 @@ func RunServer(server *http.Server) {
 func main() {
 	godotenv.Load(".env") // load env variables
 
+	gin.SetMode(gin.ReleaseMode)
+
 	router := gin.New()
 
 	router.Use(cors.New(cors.Config{
