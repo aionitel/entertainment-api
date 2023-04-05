@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/oranges0da/entertainment-api/model"
-	"github.com/oranges0da/entertainment-api/service/utils"
+	"github.com/oranges0da/entertainment-api/src/model"
+	"github.com/oranges0da/entertainment-api/src/service/utils"
 )
 
 func GetTVByTitle(client *http.Client, title string) model.TV {

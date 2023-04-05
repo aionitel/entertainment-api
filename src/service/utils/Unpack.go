@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	model "github.com/oranges0da/entertainment-api/model"
+	model "github.com/oranges0da/entertainment-api/src/model"
 )
 
 func Unpack[M model.Movie | model.TV | model.Music | model.Book](res *http.Response, model M) M {

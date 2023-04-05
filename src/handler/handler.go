@@ -2,10 +2,10 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	book "github.com/oranges0da/entertainment-api/service/book"
-	movie "github.com/oranges0da/entertainment-api/service/movie"
-	music "github.com/oranges0da/entertainment-api/service/music"
-	tv "github.com/oranges0da/entertainment-api/service/tv"
+	book "github.com/oranges0da/entertainment-api/src/service/book"
+	movie "github.com/oranges0da/entertainment-api/src/service/movie"
+	music "github.com/oranges0da/entertainment-api/src/service/music"
+	tv "github.com/oranges0da/entertainment-api/src/service/tv"
 )
 
 type Config struct {
